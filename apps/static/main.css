@@ -1,0 +1,132 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.links-container {
+    width: 60%;
+    text-align: center;
+}
+
+.link {
+    display: block;
+    width: 100%; 
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none; 
+    border-radius: 5px;
+    margin: 10px auto;
+    text-transform: capitalize;
+}
+
+
+.link-new-tab {
+    background-color: lightgreen;
+    color: red;
+    text-decoration: underline; 
+}
+
+.link-same-tab {
+    background-color: gray;
+    color: orange;
+    text-decoration: underline;
+}
+
+.link-black-tab {
+    background-color: black;
+    color: white;
+    text-decoration: underline;
+}
+
+
+.link:hover {
+    opacity: 0.8;
+}
+
+/* Style for the title */
+.formatted-title {
+    background-color: #f5f5dc;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    border-radius: 5px;
+    color: darkgreen;
+}
+
+/* Style for the heading */
+.listing-title {
+    background-color: #5f9ea0; /* Teal color */
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Style for lists */
+ul {
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+ol {
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+
+/* General Table Styling */
+table {
+    width: auto;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Borders & Padding */
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* Center and Style Headers */
+.table-header {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Camel Table Styling */
+.camel-table {
+    width: 700px;
+}
+
+/* Title for Second Table */
+.table-title {
+    background-color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Desert Image Styling */
+.table-image {
+    width: 250px;
+    height: 150px;
+    display: block;
+}
+
+/* Ensure image cell does not break layout */
+.image-cell {
+    width: 250px;
+    text-align: center;
+}
