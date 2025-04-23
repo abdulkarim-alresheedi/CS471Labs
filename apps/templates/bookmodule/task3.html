@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% block title %} Task 3 Results {% endblock title %}
+{% block content %}
+<h2>Books NOT matching Task 2 conditions</h2>
+{% if books %}
+    <ul>
+    {% for book in books %}
+        <li><b>{{ book.title }}</b> by {{ book.author }} (Edition: {{ book.edition }}, Price: {{ book.price }})</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No books found.</p>
+{% endif %}
+{% endblock content %}

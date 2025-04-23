@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Task 2 Results {% endblock title %}
+
+{% block content %}
+<h2>Books (Edition > 3 and 'qu' in title or author)</h2>
+
+{% if books %}
+    <ul>
+    {% for book in books %}
+        <li>
+            <b>{{ book.title }}</b> by {{ book.author }}  
+            - Edition: {{ book.edition }}  
+            - Price: {{ book.price }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No matching books found.</p>
+{% endif %}
+{% endblock content %}

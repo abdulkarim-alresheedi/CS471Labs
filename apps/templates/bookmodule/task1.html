@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% block title %} Task 1 Results {% endblock title %}
+{% block content %}
+<h2>Books Priced ≤ 80</h2>
+{% if books %}
+    <ul>
+    {% for book in books %}
+        <li><b>{{ book.title }}</b> - {{ book.price }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No books found.</p>
+{% endif %}
+{% endblock content %}
