@@ -6,9 +6,10 @@
 <h2>Search Results</h2>
 {% if books %}
     <ul>
-        {% for book in books %}
-            <li><b>{{ book.title }}</b> by {{ book.author }}</li>
-        {% endfor %}
+        {% for obj in books %}
+            ID: {{ obj.id }}, Title: {{ obj.title }}
+            <hr>
+            {% endfor %}
     </ul>
 {% else %}
     <p>No books found.</p>
