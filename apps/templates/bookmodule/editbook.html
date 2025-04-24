@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+{% block title %} Edit Book {% endblock title %}
+{% block content %}
+<h2>Edit Book</h2>
+<form method="POST">
+  {% csrf_token %}
+  <input name="title" value="{{ book.title }}"><br>
+  <input name="author" value="{{ book.author }}"><br>
+  <input name="price" value="{{ book.price }}"><br>
+  <input name="edition" value="{{ book.edition }}"><br>
+  <button type="submit">Save</button>
+</form>
+{% endblock content %}
