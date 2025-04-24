@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Task 1 – Department Student Count {% endblock title %}
+
+{% block content %}
+<h2>Number of Students in Each Department</h2>
+{% if departments %}
+    <ul>
+    {% for dept in departments %}
+        <li><b>{{ dept.name }}</b>: {{ dept.student_count }} students</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No departments found.</p>
+{% endif %}
+{% endblock content %}

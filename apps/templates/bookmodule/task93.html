@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Task 3 – Oldest Student Per Department {% endblock title %}
+
+{% block content %}
+<h2>Oldest Student in Each Department (by ID)</h2>
+{% if results %}
+    <ul>
+    {% for item in results %}
+        <li><b>{{ item.department }}</b>: {{ item.student }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No students found.</p>
+{% endif %}
+{% endblock content %}

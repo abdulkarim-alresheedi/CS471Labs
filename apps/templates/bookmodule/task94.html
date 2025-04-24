@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Task 4 – Active Departments {% endblock title %}
+
+{% block content %}
+<h2>Departments with More Than 2 Students</h2>
+{% if departments %}
+    <ul>
+    {% for dept in departments %}
+        <li><b>{{ dept.name }}</b>: {{ dept.student_count }} students</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No departments with more than 2 students.</p>
+{% endif %}
+{% endblock content %}

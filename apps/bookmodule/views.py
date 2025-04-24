@@ -3,8 +3,9 @@ from .models import Book
 from django.shortcuts import render
 from django.db.models import Q
 from django.db.models import Count, Avg, Max, Min, Sum
-from .models import Student, Address
+from .models import Student, Address, Course, Department, Card
 from django.db.models import Count
+from django.db.models import Min
 
 
 #from django.http import HttpResponse
@@ -136,3 +137,29 @@ def task5_view(request):
 def task7_view(request):
     results = Address.objects.annotate(student_count=Count('student'))
     return render(request, 'bookmodule/task7.html', {'results': results})
+
+
+def task91_view(request):
+    departments = Department.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/task91.html', {'departments': departments})
+
+def task92_view(request):
+    courses = Course.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/task92.html', {'courses': courses})
+
+def task93_view(request):
+    departments = Department.objects.all()
+    results = []
+
+    for dept in departments:
+        student = dept.student_set.order_by('id').first()
+        if student:
+            results.append({'department': dept.name, 'student': student.name})
+    
+    return render(request, 'bookmodule/task93.html', {'results': results})
+
+def task94_view(request):
+    departments = Department.objects.annotate(student_count=Count('student'))\
+        .filter(student_count__gt=2).order_by('-student_count')
+    return render(request, 'bookmodule/task94.html', {'departments': departments})
+
