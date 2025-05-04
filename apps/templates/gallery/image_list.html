@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+{% block title %} Image Gallery {% endblock title %}
+{% block content %}
+<h2>Uploaded Images</h2>
+<ul>
+  {% for img in images %}
+    <li>
+      <b>{{ img.title }}</b><br>
+      <img src="{{ img.image.url }}" width="200">
+    </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

@@ -6,6 +6,12 @@ from .models import Student, Address, Course, Department, Card
 from django.db.models import Count
 from django.db.models import Min
 from .forms import BookForm
+from .models import Student
+from .forms import StudentForm
+from.forms import GalleryForm
+from.models import Gallery
+from.forms import Student2Form
+from .models import Student2
 
 
 
@@ -224,3 +230,82 @@ def delete_book_form(request, id):
     book = get_object_or_404(Book, id=id)
     book.delete()
     return redirect('list_books_form')
+
+
+def student_list(request):
+    students = Student.objects.all()
+    return render(request, 'student/student_list.html', {'students': students})
+
+
+def student_add(request):
+    form = StudentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('student_list')
+    return render(request, 'student/student_form.html', {'form': form})
+
+
+def student_edit(request, id):
+    student = get_object_or_404(Student, id=id)
+    form = StudentForm(request.POST or None, instance=student)
+    if form.is_valid():
+        form.save()
+        return redirect('student_list')
+    return render(request, 'student/student_form.html', {'form': form})
+
+def student_delete(request, id):
+    student = get_object_or_404(Student, id=id)
+    student.delete()
+    return redirect('student_list')
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = GalleryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('image_list')
+    else:
+        form = GalleryForm()
+    return render(request, 'gallery/image_form.html', {'form': form})
+
+
+def student2_list(request):
+    students = Student2.objects.all()
+    return render(request, 'student2/student2_list.html', {'students': students})
+
+def student2_add(request):
+    form = Student2Form(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('student2_list')
+    return render(request, 'student2/student2_form.html', {'form': form})
+
+def student2_edit(request, id):
+    student = get_object_or_404(Student2, id=id)
+    form = Student2Form(request.POST or None, instance=student)
+    if form.is_valid():
+        form.save()
+        return redirect('student2_list')
+    return render(request, 'student2/student2_form.html', {'form': form})
+
+def student2_delete(request, id):
+    student = get_object_or_404(Student2, id=id)
+    student.delete()
+    return redirect('student2_list')
+
+
+
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = GalleryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('image_list')
+    else:
+        form = GalleryForm()
+    return render(request, 'gallery/image_form.html', {'form': form})
+
+def image_list(request):
+    images = Gallery.objects.all()
+    return render(request, 'gallery/image_list.html', {'images': images})
