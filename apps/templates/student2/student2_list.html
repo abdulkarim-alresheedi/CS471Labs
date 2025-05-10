@@ -1,0 +1,20 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Students2 {% endblock title %}
+
+{% block content %}
+<h2>Students</h2>
+<a href="{% url 'student2_add' %}">Add Student</a>
+<ul>
+  {% for s in students %}
+    <li>
+      {{ s.name }} ({{ s.age }}) -
+      {% for addr in s.addresses.all %}
+        {{ addr.city }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+      <a href="{% url 'student2_edit' s.id %}">Edit</a>
+      <a href="{% url 'student2_delete' s.id %}">Delete</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Task 2 – Course Student Count {% endblock title %}
+
+{% block content %}
+<h2>Number of Students in Each Course</h2>
+{% if courses %}
+    <ul>
+    {% for course in courses %}
+        <li><b>{{ course.title }}</b>: {{ course.student_count }} students</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No courses found.</p>
+{% endif %}
+{% endblock content %}

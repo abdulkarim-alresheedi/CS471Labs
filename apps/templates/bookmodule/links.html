@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Links Page {% endblock title %}
+
+{% block content %}
+<style>
+    .topnav { 
+        display: none; /* Hide the navigation bar */
+    }
+</style>
+    <div class="page-container">
+        <div class="links-container">
+            <a href="https://www.qu.edu.sa" target="_blank" class="link link-new-tab">
+                Go to QU website (open a new tab)
+            </a>
+            <a href="https://www.qu.edu.sa" class="link link-same-tab">
+                Go to QU website (open in the same page/tab)
+            </a>
+            <a href="https://www.qu.edu.sa" class="link link-black-tab">
+                Go to QU website (open in the same page/tab)
+            </a>
+        </div>
+    </div>
+{% endblock content %}
